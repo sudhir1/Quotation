@@ -13,5 +13,32 @@ namespace Quotation
         {
 
         }
+
+        protected void btnCalculate_Click(object sender, EventArgs e)
+        {
+            
+            if (IsValid)
+            {
+                decimal salePrice = Convert.ToDecimal(this.txtSalesPrice.Text);
+                decimal discountPercent = (Convert.ToDecimal(this.txtDiscountPercent.Text)) / 100;
+                decimal discountAmount = salePrice * discountPercent;
+                decimal totalPrice = salePrice - discountAmount;
+                this.lblDiscountAmount.Text = discountAmount.ToString();
+                this.lblTotalPrice.Text = totalPrice.ToString();
+            }
+        }
+
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            this.txtSalesPrice.Text = "";
+            this.txtDiscountPercent.Text = "";
+            this.lblDiscountAmount.Text = "";
+            this.lblTotalPrice.Text = "";
+        }
+
+        protected void btncart_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
